@@ -1,0 +1,73 @@
+html , body  {
+	font       : 12px/1.6 $font-family;
+	width      : 100%;
+	min-height : 100%;
+	@include text-size-adjust;
+}
+
+body {
+	background       : linear-gradient(174deg, #ffd670 25%, #fee490 25%, #fee490 50%, #ffd670 50%, #ffd670 75%, #fee490 75%);
+	background-size  : 74px 8px;
+	width            : 100%;
+	height           : 100%;
+}
+
+button {
+	@include button-default;
+}
+
+input {
+	font-family: $font-family;
+	@include appearance(none);
+}
+
+a {
+	@include button-default;
+	text-decoration : none;
+	outline         : 0;
+
+	&[href^="tel"] , &[href^="TEL"] {
+		cursor : text;
+	}
+
+	&:hoevr {
+		text-decoration : none;
+	}
+}
+
+@include respond-to(Desktops) {
+}
+
+@include respond-to(Tablets) {
+	html , body  {
+		min-height : 100%;
+	}
+
+	html {
+		overflow-x: hidden;
+	}
+}
+
+@include respond-to(Mobiles) {
+	body {
+		width: 100vw;
+		position: relative;
+		overflow-x: hidden;
+	}
+
+	html {
+		overflow-x: hidden;
+	}
+}
+
+@include browsers('IE9') {
+	body {
+		background: image-url('for-ie/bg-body.jpg');
+	}
+}
+
+@include browsers('IE8') {
+	body {
+		background: image-url('for-ie/bg-body.jpg');
+	}
+}

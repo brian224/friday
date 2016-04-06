@@ -1,0 +1,61 @@
+/* cloak */
+.b-cloak {
+	display : none !important;
+}
+
+/* vertical-align middle */
+.b-middle {
+	font-size  : 0;
+	max-height : 100%;
+
+	&:before {
+		content : '';
+		height  : 100%;
+		@include inline-block;
+	}
+
+	> * {
+		font-size : initial;
+		zoom      : 1;
+		@include inline-block;
+	}
+}
+
+/* clearfix */
+.b-clearfix {
+	&:after {
+		content : '';
+		width   : 100%;
+		height  : 0;
+		clear   : both;
+		@include clearfix;
+		@include display(block);
+	}
+}
+
+.b-count {
+	padding-left: 3px;
+	font-size : 12px;
+}
+
+@include respond-to(Desktops) {
+	.is-tm-show {
+		display : none !important;
+	}
+}
+
+@include respond-to(Desktops-Tablets) {
+	.dt-block {
+		display : block;
+	}
+}
+
+@include respond-to(Tablets) {}
+
+@include respond-to(Tablets-Mobiles) {}
+
+@include respond-to(Mobiles) {
+	.sm-block {
+		display : block;
+	}
+}
