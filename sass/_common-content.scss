@@ -1,0 +1,150 @@
+﻿.main-title {
+	font-size: 0;
+	font-weight: bold;
+
+	.half-part {
+		position: relative;
+
+		.svg-icon {
+			display: block;
+			position: absolute;
+		}
+	}
+}
+
+.main-content {
+	font-size: 12px;
+	text-align: center;
+}
+
+.half-part {
+	color: #fff;
+	text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.65);
+	@include box-sizing(border-box);
+}
+
+@include respond-to(Desktops) {}
+
+@include respond-to(Desktops-Tablets) {
+	.main-title {
+		margin: 20px 0 40px 0;
+
+		.half-part {
+			margin-bottom: 0;
+			font-size: 32px;
+
+			.svg-icon {
+				width: 114px;
+			}
+
+			&.left-part {
+				padding: 140px 72px 0 0;
+
+				.svg-icon {
+					height: 160px;
+					top: 0;
+					right: 15px;
+				}
+			}
+
+			&.right-part {
+				padding: 54px 0 0 130px;
+				vertical-align: top;
+
+				.svg-icon {
+					height: 148px;
+					top: 62px;
+					left: 15px;
+				}
+			}
+		}
+	}
+
+	.half-part {
+		margin-bottom: 30px;
+		padding: 0 15px;
+		display: inline-block;
+		width: 50%;
+
+		&.left-part {
+			text-align: right;
+		}
+
+		&.right-part {
+			text-align: left;
+		}
+
+		.sub-title {
+			margin-bottom: 30px;
+			font-size: 30px;
+		}
+
+		.desc {
+			font-size: 18px;
+			line-height: 30px;
+		}
+	}
+}
+
+@include respond-to(Tablets) {}
+
+@include respond-to(Tablets-Mobiles) {}
+
+@include respond-to(Mobiles) {
+	.main-title {
+		margin: 11px 0 20px 0;
+
+		.half-part {
+			display: inline-block;
+			width: 50%;
+			font-size: 14px;
+
+			.svg-icon {
+				width: 50px;
+			}
+
+			&.left-part {
+				padding: 64px 32px 0 0;
+				text-align: right;
+
+				.svg-icon {
+					height: 71px;
+					top: 0;
+					right: 7px;
+				}
+			}
+
+			&.right-part {
+				padding: 27px 0 0 58px;
+				vertical-align: top;
+				text-align: left;
+
+				.svg-icon {
+					background-position: -50px 0;
+					height: 65px;
+					top: 31px;
+					left: 7px;
+				}
+			}
+		}
+	}
+
+	.half-part {
+		padding: 0 7px;
+		text-align: center;
+
+		.sub-title {
+			font-size: 20px;
+		}
+
+		.desc {
+			margin-bottom: 10px;
+			font-size: 12px;
+			line-height: 18px;
+		}
+	}
+}
+
+@include browsers('IE') {}
+
+@include browsers('IE8') {}
