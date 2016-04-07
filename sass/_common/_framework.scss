@@ -69,13 +69,7 @@ a {
 }
 
 @include browsers('IE9') {
-	body {
-		background: image-url('for-ie/bg-body.jpg');
-	}
 }
 
 @include browsers('IE8') {
-	body {
-		background: image-url('for-ie/bg-body.jpg');
-	}
 }

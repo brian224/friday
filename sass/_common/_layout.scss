@@ -133,7 +133,6 @@
 
 .l-content {
 	position: relative;
-	font-size: 0;
 
 	&:before, &:after {
 		content: '';
@@ -157,7 +156,7 @@
 	margin: 0 auto;
 	display: inline-block;
 	position: relative;
-	color: #ac1446;
+	color: #900129;
 	font-weight: bold;
 	text-align: center;
 	@include background-image(linear-gradient(to bottom, #ffe44d 0%, #ffba4d 55%, #ff9a00 56%, #ff6e00 100%));
@@ -257,20 +256,20 @@
 
 	.btn-link {
 		min-width: 420px;
-		height: 48px;
-		border-radius: 21px;
+		height: 68px;
+		border-radius: 28px;
 		box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5), inset 0 2px 0 #fff;
-		font-size: 24px;
-		line-height: 48px;
+		line-height: 68px;
 
 		em {
 			margin: 0 14px;
+			font-size: 24px;
 			text-shadow: 1px 2px 0 rgba(255, 255, 255, 0.6);
 		}
 
 		&:after {
 			border-top: 8px solid transparent;
-			border-left: 14px solid #ac1446;
+			border-left: 14px solid #900129;
 			border-bottom: 8px solid transparent;
 		}
 	}
@@ -367,11 +366,11 @@
 		height: 30px;
 		border-radius: 15px;
 		box-shadow: 0 3px 3px rgba(0, 0, 0, 0.5), inset 0 1px 0 #fff;
-		font-size: 15px;
 		line-height: 30px;
 
 		em {
 			margin: 0 7px;
+			font-size: 15px;
 			text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
 		}
 
@@ -379,7 +378,7 @@
 			margin-top: -5px;
 			right: 20px;
 			border-top: 5px solid transparent;
-			border-left: 9px solid #ac1446;
+			border-left: 9px solid #900129;
 			border-bottom: 5px solid transparent;
 		}
 	}
