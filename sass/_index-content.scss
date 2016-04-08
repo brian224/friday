@@ -23,20 +23,58 @@
 
 .film-recom {
 	position: relative;
+	background: image-url('index/bg-film.png') right 0 repeat-y;
 	@include box-sizing(border-box);
 
-	.bg-film {
-		height: 100%;
+	&:before, &:after {
+		content: '';
+		background: #029bd1 image-url('index/border-film.png') right 0 no-repeat;
+		display: block;
+		width: 100%;
 		position: absolute;
-		top: 0;
+		left: 0;
+	}
+}
+
+.slide-show {
+	height: 100%;
+	position: relative;
+	@include box-sizing(border-box);
+
+	.showcase {
+		width: 100%;
+		overflow: hidden;
 	}
 
-	.svg-icon {
-		width: 100%;
-		height: 100%;
+	.ctrl-button {
+		background: #000;
 		position: absolute;
-		top: 0;
-		left: 0;
+		top: 50%;
+		border: 1px solid #fff;
+		cursor: pointer;
+		z-index: 1;
+
+		&:before {
+			content: '';
+			display: block;
+			width: 0;
+			height: 0;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+		}
+
+		&.btn-prev {
+			left: 4px;
+			border-left: 0;
+			border-radius: 0 4px 4px 0;
+		}
+
+		&.btn-next {
+			right: 0;
+			border-right: 0;
+			border-radius: 4px 0 0 4px;
+		}
 	}
 }
 
@@ -50,6 +88,12 @@
 		display: inline-block;
 		color: #000;
 		text-shadow: none;
+
+		.img-wrap {
+			display: block;
+			width: 100%;
+			overflow: hidden;
+		}
 
 		img {
 			display: block;
@@ -125,6 +169,10 @@
 	}
 }
 
+.owl-carousel .owl-item {
+	float: left;
+}
+
 @include respond-to(Desktops) {}
 
 @include respond-to(Desktops-Tablets) {
@@ -153,23 +201,70 @@
 		}
 	}
 
+	.kv {
+		padding-bottom: 320px;
+		position: relative;
+	}
+
 	.film-recom {
 		padding: 46px 4px 0 0;
 		height: 320px;
-		float: left;
+		position: absolute;
+		bottom: 0;
+		right: 50%;
 
-		.bg-film {
-			width: 504px;
-			right: 0;
+		&:before, &:after {
+			height: 44px;
+		}
+
+		&:before {
+			top: 0;
+		}
+
+		&:after {
+			background-position: right -44px;
+			bottom: 0;
+		}
+	}
+
+	.slide-show {
+		width: 474px;
+		float: right;
+
+		.ctrl-button {
+			margin-top: -32px;
+			width: 35px;
+			height: 45px;
+
+			&.btn-prev:before {
+				margin: -11px  0 0 -7px;
+				border-top: 11px solid transparent;
+				border-right: 14px solid #ff9c00;
+				border-bottom: 11px solid transparent;
+			}
+
+			&.btn-next:before {
+				margin: -11px  0 0 -7px;
+				border-top: 11px solid transparent;
+				border-bottom: 11px solid transparent;
+				border-left: 14px solid #ff9c00;
+			}
 		}
 	}
 
 	.movie-list .list {
 		width: 154px;
+		height: 274px;
 		font-size: 18px;
 
+		.img-wrap {
+			height: 214px;
+		}
+
 		.movie-name {
-			margin-top: 10px;
+			margin-top: 5px;
+			font-size: 15px;
+			line-height: 20px;
 		}
 	}
 
@@ -178,7 +273,9 @@
 		padding: 7px;
 		width: 500px;
 		height: 297px;
-		float: left;
+		position: absolute;
+		bottom: 0;
+		left: 50%;
 		border-radius: 0 27px 27px 0;
 
 		.lightbox {
@@ -228,7 +325,35 @@
 	}
 }
 
-@include respond-to(Tablets) {}
+@include respond-to(Tablets) {
+	.kv {
+		padding-bottom: 0;
+	}
+
+	.film-recom {
+		padding-right: 0;
+		width: 100%;
+		position: relative;
+		bottom: auto;
+		right: auto;
+	}
+
+	.slide-show {
+		margin: 0 auto;
+		width: 474px;
+		float: none;
+	}
+
+	.lottery-part {
+		position: relative;
+		bottom: auto;
+		left: auto;
+	}
+
+	.movie-list {
+		text-align: center;
+	}
+}
 
 @include respond-to(Tablets-Mobiles) {}
 
@@ -261,20 +386,62 @@
 	}
 
 	.film-recom {
-		margin-bottom: 10px;
-		padding: 23px 0 0 4px;
-		height: 160px;
+		margin: 32px 0;
+		padding: 0 0 0 4px;
+		background-position: center 0;
+		background-size: 252px 1px;
 
-		.bg-film {
+		&:before, &:after {
 			margin-left: -126px;
+			background-color: transparent;
+			background-size: 252px 44px;
 			width: 252px;
+			height: 22px;
 			left: 50%;
+		}
+
+		&:before {
+			top: -22px;
+		}
+
+		&:after {
+			background-position: right -22px;
+			bottom: -22px;
+		}
+	}
+
+	.slide-show {
+		width: 237px;
+		position: relative;
+		top: 10px;
+
+		.ctrl-button {
+			margin-top: -30px;
+			width: 24px;
+			height: 30px;
+
+			&.btn-prev:before {
+				margin: -5px  0 0 -5px;
+				border-top: 5px solid transparent;
+				border-right: 7px solid #ff9c00;
+				border-bottom: 5px solid transparent;
+			}
+
+			&.btn-next:before {
+				margin: -5px  0 0 -3px;
+				border-top: 5px solid transparent;
+				border-bottom: 5px solid transparent;
+				border-left: 7px solid #ff9c00;
+			}
 		}
 	}
 
 	.movie-list .list {
-		width: 76px;
 		font-size: 12px;
+
+		.img-wrap {
+			height: 104px;
+		}
 
 		.movie-name {
 			margin-top: 5px;
@@ -343,6 +510,7 @@
 }
 
 @include browsers('IE8') {
-	.main-content {
+	.award-list .list {
+		width: 140px;
 	}
 }

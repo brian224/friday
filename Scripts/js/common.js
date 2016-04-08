@@ -15,7 +15,9 @@
 			}
 		});
 
-		if (Projects.Factory.LContent.hasClass('game')) {
+		if (Projects.Factory.LContent.hasClass('index')) {
+			Projects.Factory.OwlCarousel.Init();
+		} else if (Projects.Factory.LContent.hasClass('game')) {
 			Projects.Factory.Checked.OpenChecked();
 			Projects.Factory.PrivateMode.Init();
 		} else if (Projects.Factory.LContent.hasClass('getcode')) {

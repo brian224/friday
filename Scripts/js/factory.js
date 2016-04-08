@@ -46,6 +46,49 @@
 					$(Element).parents('.m-nav').toggleClass('is-active');
 				}
 			},
+			OwlCarousel  : {
+				Init    : function() {
+					var $this = this;
+
+					if ( $('.jq-owl-slide').length !== 0 ) {
+						$this.Setting($('.jq-owl-slide .movie-list'));
+					}
+				},
+				Setting : function(Element) {
+					for ( var i = 0 ; i < Element.length ; i ++ ) {
+						if (Element.eq(i).data('init') !== false) {
+							if (Element.eq(i).data('dotscontainer') !== '') {
+								var _str = '';
+
+								for (var j = 0; j < Element.eq(i).find('li').length; j++) {
+									_str += '<div class="page"><a href="javascript:;">' + (j + 1) + '</a></div>';
+								}
+								$(Element.eq(i).data('dotscontainer')).html(_str);
+							} else {
+								Element.eq(i).siblings('.pagination').remove();
+							}
+
+							Element.eq(i).owlCarousel({
+								items              : parseInt(Element.eq(i).data('items'), 10),
+								nav                : ( Element.eq(i).data('nav') === true ) ? true : false,
+								navText            : Element.eq(i).data('navtext') ? Element.eq(i).data('navtext').split(',') : ['', ''],
+								navClass           : Element.eq(i).data('navclass') ? Element.eq(i).data('navclass').split(',') : ['', ''],
+								navContainer       : Element.eq(i).data('navcontainer'),
+								navContainerClass  : Element.eq(i).data('navcontainerclass'),
+								loop               : ( Element.eq(i).find('li').length > 1 ) ? ( ( Element.eq(i).data('loop') === true ) ? true : false ) : false,
+								dots               : ( Element.eq(i).data('dots') === true ) ? true : false,
+								autoplay           : ( Element.eq(i).data('autoplay') === true ) ? true : false,
+								autoplayTimeout    : 5000,
+								autoplayHoverPause : true,
+								animateOut         : 'fadeOut',
+								animateIn          : 'fadeIn',
+								dotsContainer      : Element.eq(i).data('dotscontainer'),
+								mouseDrag          : true
+							});
+						}
+					}
+				}
+			},
 			Checked      : {
 				OpenChecked : function() {
 					if ( Projects.Factory.IOSChrome() ) {

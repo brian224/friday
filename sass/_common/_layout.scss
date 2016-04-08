@@ -311,6 +311,11 @@
 		.m-nav {
 			height: 100%;
 			z-index: -1;
+			@include transition(ease-in all 0.3s);
+
+			&.is-active {
+				z-index: 5;
+			}
 
 			.hint-text {
 				height: 100%;
