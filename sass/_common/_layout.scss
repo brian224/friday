@@ -139,7 +139,6 @@
 		background: image-url('Shared/bg-l-content.png') 0 0 no-repeat;
 		display: block;
 		position: absolute;
-		z-index: -1;
 	}
 
 	&:before {
@@ -148,6 +147,7 @@
 
 	&:after {
 		left: 50%;
+		z-index: -1;
 		@include transform(rotate(180deg));
 	}
 }
@@ -155,7 +155,6 @@
 .btn-link {
 	margin: 0 auto;
 	display: inline-block;
-	position: relative;
 	color: #900129;
 	font-weight: bold;
 	text-align: center;
@@ -163,11 +162,14 @@
 
 	em {
 		display: inline-block;
-	}
+		position: relative;
 
-	&:after {
-		content: '';
-		display: inline-block;
+		&:before, &:after {
+			content: '';
+			display: inline-block;
+			position: absolute;
+			top: 50%;
+		}
 	}
 }
 
@@ -262,15 +264,26 @@
 		line-height: 68px;
 
 		em {
-			margin: 0 14px;
+			padding-right: 14px;
 			font-size: 24px;
 			text-shadow: 1px 2px 0 rgba(255, 255, 255, 0.6);
-		}
 
-		&:after {
-			border-top: 8px solid transparent;
-			border-left: 14px solid #900129;
-			border-bottom: 8px solid transparent;
+			&:before, &:after {
+				right: -14px;
+				border-top: 8px solid transparent;
+				border-bottom: 8px solid transparent;
+			}
+
+			&:before {
+				margin-top: -6px;
+				border-left: 14px solid #fff;
+				@include opacity(0.6);
+			}
+
+			&:after {
+				margin-top: -8px;
+				border-left: 14px solid #900129;
+			}
 		}
 	}
 
@@ -357,6 +370,7 @@
 
 	.l-content {
 		padding-top: 50px;
+		overflow-x: hidden;
 
 		&:before, &:after {
 			background-size: 244px auto;
@@ -374,17 +388,26 @@
 		line-height: 30px;
 
 		em {
-			margin: 0 7px;
+			padding-right: 7px;
 			font-size: 15px;
 			text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
-		}
 
-		&:after {
-			margin-top: -5px;
-			right: 20px;
-			border-top: 5px solid transparent;
-			border-left: 9px solid #900129;
-			border-bottom: 5px solid transparent;
+			&:before, &:after {
+				right: -9px;
+				border-top: 5px solid transparent;
+				border-bottom: 5px solid transparent;
+			}
+
+			&:before {
+				margin-top: -4px;
+				border-left: 9px solid #fff;
+				@include opacity(0.6);
+			}
+
+			&:after {
+				margin-top: -5px;
+				border-left: 9px solid #900129;
+			}
 		}
 	}
 
@@ -394,69 +417,81 @@
 }
 
 @include browsers('IE8') {
-	.l-header .m-nav {
-		&.is-active .icon-menu {
-			margin: -8px 0 0 -8px;
-			background: image-url('for-ie/bg-menu.png') 0 -78px no-repeat;
-			width: 16px;
-			height: 16px;
+	.l-header {
+		.logo .link {
+			background: image-url('for-ie/logo.png') 0 0 no-repeat;
+			width: 131px;
 
-			&:before, &:after {
-				display: none;
+			&.richart {
+				background-position: -131px 0;
 			}
 		}
 
-		.btn-menu {
-			background: image-url('for-ie/bg-menu.png') 0px 0px no-repeat;
-			right: -18px;
-		}
-
-		.hint-text {
-			padding-right: 18px;
-			width: 168px;
-			right: 57px;
-			
-			&:before, &:after {
-				content: '';
-				background: image-url('for-ie/bg-menu.png') 0 -36px no-repeat;
-				display: block;
-				width: 21px;
-				height: 42px;
-				position: absolute;
-				top: 0;
-				left: -21px;
+		.m-nav {
+			&.is-active .icon-menu {
+				margin: -8px 0 0 -8px;
+				background: image-url('for-ie/bg-menu.png') 0 -78px no-repeat;
+				width: 16px;
+				height: 16px;
+	
+				&:before, &:after {
+					display: none;
+				}
 			}
 	
-			&:after {
-				background-position: -21px -36px;
-				left: auto;
-				right: -21px;
+			.btn-menu {
+				background: image-url('for-ie/bg-menu.png') 0px 0px no-repeat;
+				right: -18px;
+			}
+	
+			.hint-text {
+				padding-right: 18px;
+				width: 168px;
+				right: 57px;
+				
+				&:before, &:after {
+					content: '';
+					background: image-url('for-ie/bg-menu.png') 0 -36px no-repeat;
+					display: block;
+					width: 21px;
+					height: 42px;
+					position: absolute;
+					top: 0;
+					left: -21px;
+				}
+		
+				&:after {
+					background-position: -21px -36px;
+					left: auto;
+					right: -21px;
+				}
 			}
 		}
 	}
 
-	.main-content .btn-link {
-		background: image-url('for-ie/bg-btn.png') repeat-x;
-		height: 54px;
+	.btn-link {
+		background: image-url('for-ie/bg-btn.png') 0 0 repeat-x;
+		width: 350px;
+		height: 75px;
 		position: relative;
 		overflow: visible;
 
 		&:before, &:after {
 			content: '';
 			background: image-url('for-ie/bg-btn-border.png') 0 0 no-repeat;
-			width: 24px;
+			width: 32px;
 			height: 100%;
 			position: absolute;
 			top: 0;
-			left: -24px;
+			left: -32px;
 		}
 
 		&:after {
 			margin: 0;
-			background-position: -24px 0;
+			background-position: -32px 0;
 			width: 38px;
 			left: auto;
-			right: -24px;
+			right: -38px;
 			border: 0;
 		}
 	}

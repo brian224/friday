@@ -1,0 +1,423 @@
+﻿.propaganda {
+	color: #d81212;
+	font-weight: bold;
+	text-align: center;
+}
+
+.slogan {
+	color: #333;
+	text-align: center;
+
+	strong {
+		display: block;
+		font-weight: bold;
+	}
+}
+
+.func {
+	margin: 0 auto;
+	position: relative;
+
+	&:before, &:after {
+		content: '';
+		display: block;
+		width: 0;
+		height: 0;
+		position: absolute;
+	}
+
+	.list {
+		display: inline-block;
+		position: relative;
+		vertical-align: top;
+		@include box-sizing(border-box);
+
+		&:before {
+			content: '';
+			margin-left: -91px;
+			background: #000;
+			width: 182px;
+			height: 5px;
+			position: absolute;
+			top: 208px;
+			left: 50%;
+			border-radius: 50%;
+			z-index: 1;
+			@include opacity(0.3);
+		}
+
+		&:after {
+			content: '';
+			position: absolute;
+			z-index: 3;
+		}
+
+		.pc, .mobile {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			z-index: 2;
+		}
+
+		.pc {
+			margin: -61px 0 0 -85px;
+			width: 170px;
+			height: 142px;
+		}
+
+		.mobile {
+			width: 54px;
+			height: 102px;
+			top: 104px;
+			left: 26px;
+			@include transform(rotate(-20deg));
+		}
+
+		.pentagon {
+			position: absolute;
+			top: 0;
+			z-index: 0;
+			fill: #029bd1;
+		}
+
+		&:first-child {
+			background: #029bd1;
+
+			&:after {
+				margin: -54px 0 0 -77px;
+				background: #cecece image-url('finalstep/screen-dog.png') center 1px no-repeat;
+				width: 154px;
+				height: 94px;
+				top: 50%;
+				left: 50%;
+			}
+		}
+
+		+ li {
+			background: #ffb923;
+
+			&:after {
+				background: #cecece image-url('finalstep/qrcode.jpg') 0 0 no-repeat;
+				width: 141px;
+				height: 141px;
+				top: 67px;
+				left: 74px;
+			}
+
+			.pentagon {
+				left: auto;
+				fill: #ffb923;
+				@include transform(rotate(180deg));
+			}
+		}
+	}
+
+	.sub-title {
+		margin-top: 20px;
+		position: relative;
+		z-index: 1;
+		color: #fff;
+		font-size: 24px;
+		font-weight: bold;
+		text-align: center;
+		text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
+	}
+
+	.btn-link {
+		min-width: 0;
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+
+		em {
+			vertical-align: top;
+
+			&:before, &:after {
+				right: 0;
+			}
+		}
+	}
+}
+
+.desc {
+	text-align: center;
+}
+
+@include respond-to(Desktops) {}
+
+@include respond-to(Desktops-Tablets) {
+	.propaganda {
+		margin: 12px 0;
+		font-size: 24px;
+		line-height: 1.5em;
+	}
+
+	.slogan {
+		margin-bottom: 12px;
+		font-size: 18px;
+		line-height: 36px;
+
+		strong {
+			font-size: 22px;
+		}
+	}
+
+	.func {
+		margin-bottom: 40px;
+		width: 710px;
+		height: 255px;
+
+		&:before, &:after {
+			left: 50%;
+		}
+
+		&:before {
+			margin-left: -34px;
+			top: 1px;
+			border-top: 127px solid transparent;
+			border-right: 30px solid transparent;
+			border-bottom: 127px solid #029bd1;
+			border-left: 30px solid #029bd1;
+		}
+
+		&:after {
+			margin-left: -26px;
+			top: 0;
+			border-top: 127px solid #ffb923;
+			border-right: 30px solid #ffb923;
+			border-bottom: 127px solid transparent;
+			border-left: 30px solid transparent;
+		}
+
+		.list {
+			width: 258px;
+			height: 100%;
+
+			.pentagon {
+				width: 63px;
+				height: 255px;
+				left: -62px;
+			}
+
+			&:first-child {
+				margin-left: 63px;
+				float: left;
+			}
+	
+			+ li  {
+				margin-right: 63px;
+				float: right;
+
+				.pentagon {
+					right: -62px;
+				}
+			}
+		}
+
+		.btn-link {
+			margin: 0 0 -20px -60px;
+			padding: 0 20px;
+			height: 40px;
+
+			em {
+				padding-right: 20px;
+				font-size: 20px;
+				line-height: 40px;
+			}
+		}
+	}
+
+	.desc {
+		margin-bottom: 12px;
+	}
+}
+
+@include respond-to(Tablets) {
+	.func {
+		width: auto;
+
+		.list {
+			width: 214px;
+
+			.mobile {
+				left: 2px;
+			}
+
+			+ li {
+				&:after {
+					left: 52px;
+				}
+
+				.btn-link {
+					margin-left: -70px;
+				}
+			}
+		}
+	}
+}
+
+@include respond-to(Tablets-Mobiles) {}
+
+@include respond-to(Mobiles) {
+	.propaganda {
+		margin: 12px 0;
+		font-size: 18px;
+		line-height: 1.5em;
+	}
+
+	.slogan {
+		margin-bottom: 12px;
+		font-size: 12px;
+		line-height: 24px;
+
+		strong {
+			font-size: 15px;
+		}
+	}
+
+	.func {
+		margin-bottom: 10px;
+		padding: 62px 0;
+		width: 255px;
+
+		&:before, &:after {
+			top: 317px;
+		}
+
+		&:before {
+			left: 0;
+			border-top: 30px solid #029bd1;
+			border-right: 127px solid transparent;
+			border-bottom: 30px solid transparent;
+			border-left: 127px solid #029bd1;
+		}
+
+		&:after {
+			margin-top: 12px;
+			left: 1px;
+			border-top: 30px solid transparent;
+			border-right: 127px solid #ffb923;
+			border-bottom: 30px solid #ffb923;
+			border-left: 127px solid transparent;
+		}
+
+		.list {
+			display: block;
+			width: 100%;
+			height: 255px;
+
+			.sub-title {
+				margin: 0;
+			}
+
+			.mobile {
+				display: none;
+			}
+
+			.pentagon {
+				width: 63px;
+				height: 255px;
+				right: 0;
+			}
+
+			&:first-child {
+				margin-bottom: 72px;
+
+				.pentagon {
+					top: 1px;
+					@include transform(rotate(90deg));
+					@include transform-origin(top, right);
+				}
+			}
+
+			+ li {
+				padding-bottom: 30px;
+				height: auto;
+
+				&:before, &:after {
+					display: none;
+				}
+
+				.pentagon {
+					top: auto;
+					bottom: 1px;
+					@include transform(rotate(-90deg));
+					@include transform-origin(bottom, right);
+				}
+			}
+		}
+
+		.btn-link {
+			margin-left: -70px;
+			width: 140px;
+
+			em {
+				padding-right: 14px;
+			}
+		}
+	}
+}
+
+@include browsers('IE') {
+}
+
+@include browsers('IE9') {
+}
+
+@include browsers('IE8') {
+	.func {
+		.list {
+			&:before {
+				margin: -61px 0 0 -85px;
+				background: image-url('for-ie/bg-func.png') 0 0 no-repeat;
+				width: 177px;
+				height: 146px;
+				top: 50%;
+			}
+
+			.pentagon {
+				background: image-url('for-ie/border-pentagon.png') 0 0 no-repeat;
+				display: block;
+			}
+	
+			+ li {
+				&:before {
+					margin: -30px 0 0 -120px;
+					background-position: -177px 0;
+					width: 213px;
+					height: 115px;
+				}
+
+				.pentagon {
+					background-position: -63px 0;
+				}
+			}
+		}
+
+		.btn-link {
+			padding: 0 10px;
+			background: image-url('for-ie/bg-btn-s.png') 0 0 repeat-x;
+			width: auto;
+			height: 45px;
+
+			&:before, &:after {
+				background: image-url('for-ie/bg-btn-s-border.png') 0 0 no-repeat;
+			}
+
+			&:before {
+				width: 19px;
+				left: -19px;
+			}
+
+			&:after {
+				background-position: -19px 0;
+				width: 23px;
+				right: -23px;
+			}
+
+			em {
+				line-height: 40px;
+			}
+		}
+	}
+}

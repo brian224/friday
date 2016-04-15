@@ -1,0 +1,308 @@
+﻿.main-content-bd {
+	&:before {
+		content: '';
+		background: image-url('getCode/bg-dog.png') 0 0 no-repeat;
+		position: absolute;
+		z-index: 2;
+	}
+}
+
+.ticket-content {
+	text-align: center;
+
+	.slogan, .action-desc {
+		display: block;
+		color: #333;
+		text-align: left;
+	}
+}
+
+.propaganda {
+	color: #d81212;
+	font-weight: bold;
+	text-align: center;
+}
+
+.highlight-area {
+	background: #fff;
+	text-align: left;
+
+	.desc {
+		color: #333;
+
+		.code {
+			background: #ccc;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		.hint {
+			color: #bc1e52;
+		}
+	}
+}
+
+.collect {
+	border-top: 3px solid #d59c89;
+	border-bottom: 3px solid #d59c89;
+	font-size: 0;
+	text-align: left;
+
+	.desc {
+		color: #333;
+		font-weight: bold;
+		text-align: center;
+	}
+
+	.function-list .list {
+		display: inline-block;
+		position: relative;
+		vertical-align: top;
+		color: #333;
+		text-align: center;
+		@include box-sizing(border-box);
+
+		&:before {
+			content: '';
+			background: #d8c5a3;
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			border-radius: 50%;
+		}
+
+		&:after {
+			background: #f16868;
+			position: absolute;
+			border-radius: 50%;
+			color: #fff;
+			text-align: center;
+		}
+
+		.svg-icon {
+			display: block;
+			position: absolute;
+			top: 65px;
+			left: 50%;
+		}
+
+		em {
+			display: block;
+
+			&:before {
+				content: '';
+				position: absolute;
+				left: 50%;
+				border: 1px dashed #fff;
+				border-radius: 50%;
+				@include box-sizing(border-box);
+			}
+		}
+
+		@for $i from 1 through 3 {
+			&:nth-child(#{$i}):after {
+				content: '#{$i}';
+			}
+		}
+	}
+}
+
+@include respond-to(Desktops) {}
+
+@include respond-to(Desktops-Tablets) {
+	.main-content-bd:before {
+		width: 248px;
+		height: 282px;
+		bottom: -7px;
+		right: -50px;
+	}
+
+	.ticket-content {
+		padding-bottom: 30px;
+
+		.term {
+			margin: 0 170px 0 22px;
+		}
+
+		.slogan {
+			margin-bottom: 5px;
+			font-size: 18px;
+			font-weight: bold;
+			line-height: 28px;
+		}
+
+		.action-desc {
+			margin-bottom: 20px;
+			font-size: 13px;
+			line-height: 1.5em;
+		}
+	}
+
+	.propaganda {
+		margin: 12px 0;
+		font-size: 24px;
+		line-height: 1.5em;
+	}
+
+	.highlight-area {
+		margin: 0 45px;
+		padding: 18px 20px;
+		border-radius: 18px;
+
+		.desc {
+			font-size: 18px;
+			line-height: 2em;
+
+			.code {
+				margin: 0 8px;
+				min-width: 168px;
+				height: 30px;
+				line-height: 30px;
+				text-align: center;
+			}
+		}
+	}
+
+	.collect {
+		margin: 35px -16px;
+		padding-top: 20px;
+
+		.desc {
+			padding-bottom: 10px;
+			font-size: 18px;
+		}
+
+		.function-list {
+			padding-bottom: 25px;
+			text-align: center;
+
+			.list {
+				margin: 0 6px;
+				padding-top: 130px;
+				width: 130px;
+				font-size: 18px;
+				line-height: 2em;
+
+				&:before {
+					width: 100%;
+					height: 130px;
+				}
+	
+				&:after {
+					width: 32px;
+					height: 32px;
+					top: 12px;
+					left: 3px;
+					font-size: 24px;
+					line-height: 32px;
+				}
+
+				em:before {
+					margin-left: -59px;
+					width: 118px;
+					height: 118px;
+					top: 6px;
+				}
+	
+				&:first-child {
+					.svg-icon {
+						margin: -28px 0 0 -17px;
+						width: 35px;
+						height: 57px;
+					}
+	
+					+ li .svg-icon {
+						margin: -24px 0 0 -35px;
+						width: 70px;
+						height: 47px;
+					}
+	
+					+ li + li .svg-icon {
+						margin: -25px 0 0 -38px;
+						width: 76px;
+						height: 61px;
+					}
+				}
+			}
+		}
+	}
+
+	.btn-link {
+		min-width: 368px;
+		height: 66px;
+		line-height: 66px;
+	}
+}
+
+@include respond-to(Tablets) {
+	.main-content-bd:before {
+		background-size: 124px 141px;
+		width: 124px;
+		height: 141px;
+		bottom: 120px;
+		right: 50px;
+	}
+
+	.ticket-content .term {
+		margin-right: 150px;
+	}
+}
+
+@include respond-to(Tablets-Mobiles) {}
+
+@include respond-to(Mobiles) {
+	.main-content-bd:before {
+		display: none;
+	}
+
+	.propaganda {
+		margin: 12px 0;
+		font-size: 18px;
+		line-height: 1.5em;
+	}
+
+	.highlight-area {
+		padding: 42px 9px 9px 9px;
+		border-radius: 10px;
+
+		.desc {
+			line-height: 1.6em;
+
+			.hint {
+				display: block;
+			}
+
+			.code {
+				margin: 5px;
+				min-width: 84px;
+			}
+		}
+	}
+
+	.btn-link {
+		display: block;
+		width: 100%;
+	}
+}
+
+@include browsers('IE') {}
+
+@include browsers('IE8') {
+	.ticket-content {
+		position: relative;
+		border-top: 0;
+		border-bottom: 0;
+
+		&:before {
+			content: '';
+			background: image-url('getCode/bg-dog.png') 0 0 no-repeat;
+			width: 248px;
+			height: 282px;
+			position: absolute;
+			bottom: -7px;
+			right: -90px;
+			z-index: 2;
+		}
+	}
+}

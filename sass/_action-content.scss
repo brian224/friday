@@ -1,0 +1,198 @@
+﻿.ticket-content {
+	.term-title {
+		margin-bottom: 12px;
+		background: #d59c89;
+		height: 2em;
+		font-size: 15px;
+		line-height: 2em;
+	}
+
+	.desc, .list {
+		margin-bottom: 20px;
+	}
+
+	.disc-list {
+		&.notice .list {
+			margin-bottom: 0;
+		}
+
+		.list {
+			padding: 0 12px;
+			position: relative;
+			line-height: 20px;
+	
+			&:before {
+				content: '';
+				background: #333;
+				display: block;
+				width: 5px;
+				height: 5px;
+				position: absolute;
+				top: 7px;
+				left: 3px;
+				border-radius: 50%;
+			}
+		}
+	}
+
+	.award-list {
+		.award-img {
+			position: relative;
+			border-radius: 50%;
+
+			&:before {
+				content: '';
+				background: image-url('action/bg-award.png') 0 0 no-repeat;
+				display: block;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+			}
+		}
+
+		.award-name {
+			display: block;
+			color: #fff;
+			text-align: center;
+		}
+
+		em {
+			color: #b30301;
+		}
+	}
+
+	.link {
+		color: #333;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+
+.highlight {
+	color: #b30301;
+}
+
+@include respond-to(Desktops) {}
+
+@include respond-to(Desktops-Tablets) {
+	.ticket-content {
+		.term-title {
+			padding: 0 12px;
+			display: inline-block;
+			border-radius: 4px;
+		}
+
+		.award-list {
+			.award-img {
+				margin-right: 15px;
+				background: #df7e7d;
+				width: 140px;
+				height: 140px;
+
+				&.film:before {
+					margin: -10px 0 0 -41px;
+					width: 82px;
+					height: 64px;
+				}
+
+				&.money:before {
+					margin: -55px 0 0 -45px;
+					background-position: 0 -64px;
+					width: 90px;
+					height: 110px;
+				}
+			}
+
+			.award-name {
+				font-size: 18px;
+				line-height: 76px;
+
+				b {
+					font-size: 36px;
+				}
+			}
+
+			em {
+				font-size: 24px;
+				line-height: 30px;
+			}
+		}
+	}
+}
+
+@include respond-to(Tablets) {
+	.ticket-content .award-list em {
+		font-size: 21px;
+	}
+}
+
+@include respond-to(Tablets-Mobiles) {}
+
+@include respond-to(Mobiles) {
+	.ticket-content {
+		.term-title {
+			display: block;
+			border-radius: 5px;
+			text-align: center;
+		}
+
+		.award-list {
+			.award-img {
+				margin: 0 auto;
+				background: #df7e7d;
+				display: block;
+				width: 92px;
+				height: 92px;
+
+				&:before {
+					background-size: 45px auto;
+				}
+
+				&.film:before {
+					margin: -5px 0 0 -20px;
+					width: 41px;
+					height: 32px;
+				}
+
+				&.money:before {
+					margin: -27px 0 0 -22px;
+					background-position: 0 -32px;
+					width: 45px;
+					height: 55px;
+				}
+			}
+
+			.award-name {
+				font-size: 15px;
+				line-height: 48px;
+
+				b {
+					font-size: 24px;
+				}
+			}
+
+			em {
+				margin-top: 5px;
+				display: block;
+				font-size: 15px;
+				line-height: 1.6em;
+				text-align: center;
+
+				.sm-block {
+					line-height: 10px;
+				}
+			}
+		}
+	}
+}
+
+@include browsers('IE') {
+}
+
+@include browsers('IE9') {
+}
+
+@include browsers('IE8') {
+}

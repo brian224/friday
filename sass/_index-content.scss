@@ -41,6 +41,18 @@
 	position: relative;
 	@include box-sizing(border-box);
 
+	&:before {
+		content: '';
+		background: image-url('index/bg-film.png') -26px 0 repeat-y;
+		display: block;
+		width: 4px;
+		height: 240px;
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 2;
+	}
+
 	.showcase {
 		width: 100%;
 		overflow: hidden;
@@ -82,6 +94,7 @@
 	position: relative;
 	z-index: 1;
 	font-size: 0;
+	white-space: nowrap;
 
 	.list {
 		margin-left: 4px;
@@ -150,14 +163,19 @@
 			top: 0;
 			left: 0;
 			@include opacity(0.7);
+			@include animation(flicker 4.5s ease-in-out infinite);
 		}
 
 		&:first-child {
 			margin-left: 0;
-		}
 
-		&.is-show:after {
-			@include opacity(0);
+			+ li:after {
+				@include animation-delay(1.5s);
+			}
+
+			+ li + li:after {
+				@include animation-delay(3s);
+			}
 		}
 
 		.award-name {
@@ -171,6 +189,16 @@
 
 .owl-carousel .owl-item {
 	float: left;
+}
+
+@include keyframes(flicker) {
+	0% , 30% , 70% , 100% {
+		@include opacity(0.7);
+	}
+
+	40% , 60% {
+		@include opacity(0);
+	}
 }
 
 @include respond-to(Desktops) {}
@@ -331,17 +359,42 @@
 	}
 
 	.film-recom {
-		padding-right: 0;
+		margin: 50px 0;
+		padding: 0;
+		background-position: center 0;
 		width: 100%;
+		height: 232px;
 		position: relative;
 		bottom: auto;
 		right: auto;
+
+		&:before, &:after {
+			margin-left: -252px;
+			background: image-url('index/border-film.png') center 0 no-repeat;
+			width: 504px;
+			left: 50%;
+		}
+
+		&:before {
+			top: -44px;
+		}
+
+		&:after {
+			background-position: center bottom;
+			bottom: -44px;
+		}
 	}
 
 	.slide-show {
 		margin: 0 auto;
 		width: 474px;
+		left: 8px;
 		float: none;
+
+		&:before {
+			background-position: -23px 0;
+			height: 110%;
+		}
 	}
 
 	.lottery-part {
@@ -352,6 +405,10 @@
 
 	.movie-list {
 		text-align: center;
+
+		.movie-name {
+			white-space: normal;
+		}
 	}
 }
 
@@ -390,6 +447,7 @@
 		padding: 0 0 0 4px;
 		background-position: center 0;
 		background-size: 252px 1px;
+		height: auto;
 
 		&:before, &:after {
 			margin-left: -126px;
@@ -414,6 +472,13 @@
 		width: 237px;
 		position: relative;
 		top: 10px;
+		left: 0px;
+
+		&:before {
+			background-position: -10px 0;
+			background-size: 252px auto;
+			height: 100%;
+		}
 
 		.ctrl-button {
 			margin-top: -30px;
@@ -437,6 +502,7 @@
 	}
 
 	.movie-list .list {
+		width: calc(100% - 4px);
 		font-size: 12px;
 
 		.img-wrap {
@@ -504,13 +570,60 @@
 }
 
 @include browsers('IE') {
-	.award-list .list {
-		width: calc((100% - 15px) / 3);
+	.lottery-part .lightbox {
+		position: relative;
+
+		&:before {
+			content: '';
+			background: image-url('for-ie/neon-light.png') 0 0 no-repeat;
+			display: block;
+			width: 488px;
+			height: 284px;
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 1;
+		}
+	}
+
+	.award-list {
+		border-image: none;
+
+		.list {
+			width: calc((100% - 15px) / 3);
+		}
 	}
 }
 
+@include browsers('IE9') {
+}
+
 @include browsers('IE8') {
+	.lottery-part {
+		background: image-url('for-ie/bg-lottery-part.png') 0 0 no-repeat;
+
+		.lightbox {
+			position: relative;
+	
+			&:before {
+				content: '';
+				background: image-url('for-ie/neon-light.png') 0 0 no-repeat;
+				display: block;
+				width: 488px;
+				height: 284px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: 1;
+			}
+		}
+	}
+
 	.award-list .list {
 		width: 140px;
+
+		&:after {
+			display: none;
+		}
 	}
 }

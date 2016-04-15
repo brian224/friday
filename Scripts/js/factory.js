@@ -80,10 +80,9 @@
 								autoplay           : ( Element.eq(i).data('autoplay') === true ) ? true : false,
 								autoplayTimeout    : 5000,
 								autoplayHoverPause : true,
-								animateOut         : 'fadeOut',
-								animateIn          : 'fadeIn',
 								dotsContainer      : Element.eq(i).data('dotscontainer'),
-								mouseDrag          : true
+								mouseDrag          : true,
+								slideBy            : 3
 							});
 						}
 					}
@@ -204,6 +203,15 @@
 								$this.Required($(this));
 							}
 						});
+					});
+				},
+				Click       : function(Element) {
+					var $this = this;
+
+					$this.FormElement.find('.input-box').each(function(){
+						if($(this).parent().hasClass('required')) {
+							$this.Required($(this));
+						}
 					});
 				},
 				Required    : function(Element) {

@@ -1,0 +1,372 @@
+﻿.main-content-bd {
+	&:before {
+		content: '';
+		background: image-url('formStep/bg-dog.png') 0 0 no-repeat;
+		position: absolute;
+		z-index: 2;
+	}
+}
+
+.ticket-content {
+	text-align: center;
+}
+
+.propaganda {
+	color: #d81212;
+	font-weight: bold;
+	text-align: center;
+}
+
+.step-list {
+	position: relative;
+	z-index: 1;
+
+	> .list {
+		background: #fff;
+		min-height: 68px;
+		position: relative;
+
+		@for $i from 1 through 2 {
+			&:nth-child(#{$i}):before {
+				content: '#{$i}';
+			}
+		}
+
+		&:before {
+			content: '';
+			width: 90px;
+			height: 68px;
+			position: absolute;
+			z-index: 1;
+			color: #5a5e5f;
+			font-size: 45px;
+			line-height: 68px;
+			text-align: center;
+		}
+
+		&:after {
+			content: '';
+			background: #5a5e5f;
+			display: block;
+			width: 42px;
+			height: 1px;
+			position: absolute;
+			@include transform(rotate(-45deg));
+			@include transform-origin(right, center);
+		}
+
+		+ li:after {
+			@include transform(rotate(45deg));
+		}
+
+		.svg-icon {
+			width: 90px;
+			height: 68px;
+			position: absolute;
+		}
+
+		.input-form {
+			position: relative;
+
+			&.error {
+				.input-box {
+					border: 2px solid #f00;
+				}
+				.warning {
+					display: block;
+				}
+			}
+
+			.input-box {
+				background: #ddd;
+				border: 2px solid #fff;
+				height: 30px;
+				border-radius: 2px;
+				color: #333;
+				line-height: 30px;
+				text-indent: 10px;
+				@include placeholder(#919191);
+			}
+		}
+
+		.desc {
+			color: #333;
+		}
+
+		.warning {
+			display: none;
+			color: #f00;
+			white-space: nowrap;
+		}
+
+		.hint {
+			color: #c40000;
+		}
+	}
+}
+
+.inform {
+	padding-right: 5px;
+	height: 200px;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	color: #666;
+	font-size: 12px;
+	line-height: 1.5em;
+	text-align: left;
+
+	.inform-title {
+		margin-bottom: 10px;
+	}
+
+	.desc {
+		margin-bottom: 10px;
+	}
+
+	.link {
+		color: #666;
+	}
+
+	.term-list {
+		padding-left: 24px;
+
+		> .list {
+			margin-top: 10px;
+			text-indent: -24px;
+
+			&:first-child {
+				margin-top: 0;
+			}
+		}
+	}
+
+	.sub-list {
+		padding-left: 36px;
+
+		> .list {
+			text-indent: -36px;
+		}
+	}
+
+	.detail-list {
+		padding-left: 20px;
+
+		> .list {
+			text-indent: -20px;
+		}
+	}
+}
+
+@include respond-to(Desktops) {}
+
+@include respond-to(Desktops-Tablets) {
+	.main-content-bd:before {
+		width: 303px;
+		height: 294px;
+		bottom: 320px;
+		right: -20px;
+	}
+
+	.ticket-content {
+		padding-bottom: 30px;
+	}
+
+	.propaganda {
+		margin: 12px 0;
+		font-size: 24px;
+		line-height: 1.5em;
+	}
+
+	.step-list > .list {
+		margin-top: 25px;
+		padding: 25px 0 25px 115px;
+		border-radius: 20px;
+		font-size: 0;
+		text-align: left;
+
+		&:first-child {
+			margin: 0;
+		}
+
+		&:before, .svg-icon {
+			top: 25px;
+			left: 13px;
+		}
+
+		&:after {
+			top: 59px;
+			left: 17px;
+		}
+
+		.desc {
+			margin-bottom: 5px;
+			font-size: 22px;
+			line-height: 1.5em;
+		}
+
+		.hint {
+			font-size: 14px;
+			line-height: 2em;
+		}
+
+		.input-form {
+			&.cust-id, &.phone-num {
+				display: inline-block;
+				width: 162px;
+				vertical-align: top;
+
+				&.error {
+					margin-bottom: 30px;
+				}
+
+				.input-box {
+					margin-right: 0;
+				}
+			}
+
+			&.email.error {
+				margin-bottom: 30px;
+			}
+
+			.input-box {
+				margin-right: 8px;
+				width: 158px;
+				font-size: 15px;
+
+				&.large-box {
+					width: 320px;
+				}
+			}
+
+			.warning {
+				position: absolute;
+				bottom: -28px;
+				left: 0;
+				font-size: 12px;
+				line-height: 2em;
+			}
+		}
+	}
+
+	.inform {
+		margin: 80px 0 5px 0;
+
+		.inform-title {
+			font-size: 16px;
+		}
+	}
+
+	.btn-link {
+		min-width: 368px;
+		height: 66px;
+		line-height: 66px;
+	}
+}
+
+@include respond-to(Tablets) {
+	.main-content-bd:before {
+		background-size: 152px 147px;
+		width: 152px;
+		height: 147px;
+		bottom: 360px;
+		right: 50px;
+	}
+
+	.inform {
+		margin: 40px 0 5px 0;
+	}
+}
+
+@include respond-to(Tablets-Mobiles) {}
+
+@include respond-to(Mobiles) {
+	.main-content-bd:before {
+		display: none;
+	}
+
+	.propaganda {
+		margin: 12px 0;
+		font-size: 18px;
+		line-height: 1.5em;
+	}
+
+	.step-list > .list {
+		margin-top: 52px;
+		padding: 42px 9px 9px 9px;
+		border-radius: 10px;
+
+		&:before, .svg-icon {
+			margin-left: -45px;
+			top: -34px;
+			left: 50%;
+		}
+
+		&:after {
+			top: 0;
+			right: 50%;
+		}
+
+		.desc {
+			line-height: 1.6em;
+		}
+
+		.input-box {
+			margin-top: 10px;
+		}
+
+		.warning {
+			line-height: 2em;
+		}
+
+		.hint {
+			margin-top: 10px;
+			display: block;
+		}
+	}
+
+	.inform .inform-title {
+		font-size: 15px;
+	}
+
+	.btn-link {
+		display: block;
+		width: 100%;
+	}
+}
+
+@include browsers('IE') {}
+
+@include browsers('IE8') {
+	.ticket-content {
+		position: relative;
+		border-top: 0;
+		border-bottom: 0;
+
+		&:before {
+			content: '';
+			background: image-url('formStep/bg-dog.png') 0 0 no-repeat;
+			width: 303px;
+			height: 294px;
+			position: absolute;
+			bottom: 320px;
+			right: -40px;
+			z-index: 2;
+		}
+	}
+
+	.step-list > .list {
+		&:before {
+			content: '1';
+			background: image-url('for-ie/bg-step-icon.png') 0 0 no-repeat;
+		}
+
+		&:after {
+			display: none;
+		}
+
+		+ li:before {
+			content: '2';
+			background-position: 0 -68px;
+		}
+	}
+}

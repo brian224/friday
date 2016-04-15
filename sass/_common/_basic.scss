@@ -50,7 +50,11 @@
 	}
 }
 
-@include respond-to(Tablets) {}
+@include respond-to(Tablets) {
+	.tm-block {
+		display : block;
+	}
+}
 
 @include respond-to(Tablets-Mobiles) {}
 

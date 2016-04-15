@@ -6,6 +6,11 @@
 		Projects.Factory.Menu.Click(e, this);
 	});
 
+	$('.jq-submit').on('click' , function(e){
+		e.preventDefault();
+		Projects.Factory.Validate.Click(e, this);
+	});
+
 	$(window).load(function(e){
 		$('.jq-play').on('click' , function(e){
 			if (!$(this).hasClass('disable')) {
