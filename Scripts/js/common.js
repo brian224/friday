@@ -15,16 +15,17 @@
 		$('.jq-play').on('click' , function(e){
 			if (!$(this).hasClass('disable')) {
 				e.preventDefault();
-				// Projects.Factory.Play.Click();
-				Projects.Factory.FB.GetLoaginState();
+				Projects.Factory.Play.Click(e, this);
+				// Projects.Factory.FB.GetLoaginState();
 			}
 		});
 
 		if (Projects.Factory.LContent.hasClass('index')) {
+			Projects.Factory.Slideshow();
 			Projects.Factory.OwlCarousel.Init();
 		} else if (Projects.Factory.LContent.hasClass('game')) {
 			Projects.Factory.Checked.OpenChecked();
-			Projects.Factory.PrivateMode.Init();
+			// Projects.Factory.PrivateMode.Init();
 		} else if (Projects.Factory.LContent.hasClass('getcode')) {
 			Projects.Factory.GetSession.Init();
 		} else if (Projects.Factory.LContent.hasClass('formstep')) {

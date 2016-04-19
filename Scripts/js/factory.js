@@ -88,6 +88,22 @@
 					}
 				}
 			},
+			Slideshow    : function() {
+				if (Projects.Factory.UserAgent === 'IE89') {
+					var $list = $('.award-list .list'),
+						i     = 0;
+
+					$list.eq(i).addClass('is-show');
+					setInterval(function(){
+						if (i === $list.length - 1) {
+							i = 0;
+						} else {
+							i += 1;
+						}
+						$list.eq(i).addClass('is-show').siblings().removeClass('is-show');
+					}, 1500);
+				}
+			},
 			Checked      : {
 				OpenChecked : function() {
 					if ( Projects.Factory.IOSChrome() ) {
@@ -152,25 +168,99 @@
 				}
 			},
 			Play         : {
-				Award : null,
-				Money : null,
-				Label : null,
-				Click : function() {
+				Ul      : $('.award-list'),
+				List    : $('.award-list .list'),
+				Wording : $('.get-award'),
+				Check   : false,
+				Award   : null,
+				End     : null,
+				Label   : null,
+				Click   : function(e, Element) {
+					var $this = this,
+						i     = 0;
+
+					$(Element).addClass('b-cloak');
+
+					if ($this.Check === false) {
+						$this.Check = true;
+
+						var runIt = setInterval(function(){
+							if (i === $this.List.length - 1) {
+								i = 0;
+							} else if (i === $this.End) {
+								this.clearInterval(runIt);
+
+								$this.Ul.addClass('is-shine');
+								$this.Finish();
+							} else {
+								i += 1;
+							}
+
+							$this.List.eq(i).addClass('is-show').siblings().removeClass('is-show');
+						}, 50);
+
+						$('body').on('keydown', function(e){
+							if (e.keyCode === 49 || e.keyCode === 97) {
+								$this.End = 0;
+								$this.Award = '180';
+							} else if (e.keyCode === 50 || e.keyCode === 98) {
+								$this.End = 6;
+								$this.Award = '60';
+							} else if (e.keyCode === 51 || e.keyCode === 99) {
+								$this.End = 3;
+								$this.Award = '37';
+							}
+
+							sessionStorage.setItem('award', $this.Award);
+						});
+					}
+				},
+				Finish  : function() {
+					var $this = this;
+
+					$this.Wording.text($this.Award + '天免費看');
+
+					if (Projects.Factory.UserAgent === 'IE') {
+						$this.Ul.delay(0).queue(function(){
+							$(this).addClass('is-shine').dequeue();
+						}).delay(500).queue(function(){
+							$(this).removeClass('is-shine').dequeue();
+						}).delay(500).queue(function(){
+							$(this).addClass('is-shine').dequeue();
+						}).delay(500).queue(function(){
+							$(this).removeClass('is-shine').dequeue();
+						}).delay(500).queue(function(){
+							$(this).addClass('is-shine').dequeue();
+						}).delay(500).queue(function(){
+							$(this).removeClass('is-shine').dequeue();
+						}).delay(500).queue(function(){
+							$(this).addClass('is-shine').dequeue();
+						}).delay(500).queue(function(){
+							$(this).removeClass('is-shine').dequeue();
+							$('.main-content-bd').addClass('show-result');
+						});
+					} else if (Projects.Factory.UserAgent === 'IE89') {
+						$this.Ul.removeClass('is-shine');
+						$('.main-content-bd').addClass('show-result');
+					} else {
+						$this.Ul.delay(3200).queue(function(){
+							$this.Ul.removeClass('is-shine');
+							$('.main-content-bd').addClass('show-result');
+						});
+					}
 				}
 			},
 			GetSession   : {
-				serial    : $('.serial'),
-				recommand : $('.recommand'),
-				gain      : $('.gain'),
+				// serial    : $('.serial'),
+				// recommand : $('.recommand'),
+				award     : $('.award'),
 				Init      : function() {
-					var $this      = this,
-						_serial    = sessionStorage.getItem('serial') || '',
-						_recommand = sessionStorage.getItem('recommand') || '',
-						_gain      = sessionStorage.getItem('gain') || '';
+					var $this   = this,
+						// _serial = sessionStorage.getItem('serial') || '',
+						_award  = sessionStorage.getItem('award') || '';
 
-					$this.serial.text(_serial);
-					$this.recommand.text(_recommand);
-					$this.gain.text(_gain);
+					// $this.serial.text(_serial);
+					$this.award.text(_award);
 				}
 			},
 			PrivateMode  : {

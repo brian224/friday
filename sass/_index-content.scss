@@ -596,6 +596,9 @@
 }
 
 @include browsers('IE9') {
+	.award-list .list.is-show:after {
+		display: none;
+	}
 }
 
 @include browsers('IE8') {
@@ -622,8 +625,12 @@
 	.award-list .list {
 		width: 140px;
 
-		&:after {
+		&.is-show:after {
 			display: none;
+		}
+
+		&:after {
+			background: image-url('for-ie/bg-op70.png') 0 0;
 		}
 	}
 }

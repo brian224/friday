@@ -195,4 +195,7 @@
 }
 
 @include browsers('IE8') {
+	.ticket-content .award-list .award-img {
+		background: image-url('for-ie/bg-circle.png') 0 0 no-repeat;
+	}
 }
