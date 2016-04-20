@@ -1,19 +1,9 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<!--[if IE 8]><html class="no-js IE8" lang="en"><![endif]-->
-<!--[if IE 9]><html class="no-js IE9" lang="en"><![endif]-->
-<!--[if gt IE 9]><!-->
-<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="zh-Hant-TW" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://ogp.me/ns/fb#" itemscope itemtype="http://schema.org/" xmlns:wb="http://open.weibo.com/wb" class="no-js smart">
-<!--<![endif]-->
-<head>
-	<!--#include virtual="../Shared/GlobalMeta.html" -->
-	<title>Richart x friDay 影音</title>
-	<link rel="canonical" href="" />
-	<!--#include virtual="../Shared/Globalcss.html" -->
-	<link rel="stylesheet" href="/Content/css/getcode.css?JS=20160420_01">
-	<!--#include virtual="../Shared/GlobalScriptHd.html" -->
-</head>
-<body>
-	<!--#include virtual="../Shared/Header.html" -->
+﻿@{
+	Layout="~/Views/Shared/_Layout.cshtml";
+}
+@section header{ 
+	<link rel="stylesheet" href="/Content/css/getCode.css">
+}
 	<div class="l-content getcode" data-location="轉好運立即抽">
 		<h2 class="main-title">
 			<div class="half-part left-part">
@@ -67,16 +57,14 @@
 						<em class="slogan">免費看37天friDay 影音<br>完成領獎步驟跟Richart 領NT$300 <span class="tm-block">還有機會抽到NT10萬元現金！</span></em>
 						<p class="action-desc">每人僅限參與Richart活儲帳號開戶活動一次，曾參加註冊Richart活儲帳戶並符合資格後領取贈品、贈獎者，即無法參與本活動或其他任何以註冊Richart活儲帳戶為活動條件之贈品、贈獎活動，詳情請見右上角活動辦法。</p>
 					</div>
-					<a href="formStep.html" class="btn-link"><em>立馬填資料</em></a>
+					<form name="txForm" method="post" action="">
+						<input type="hidden" class="ACT_NO" name="ACT_ID" value="">
+						<button class="btn-link" type="submit"><em>立馬填資料</em></button>
+					</form>
 				</div>
 				<svg class="svg-icon border-bottom"><use xlink:href="/Content/svg/icon.svg?JS=20160420_01#border-ticket"/></svg>
 			</div>
 		</div>
 	</div>
-	<!--#include virtual="../Shared/Footer.html" -->
-</body>
-<!--#include virtual="../Shared/GlobalScriptFt.html" -->
-<!--[if lt IE 10]>
-<script type="text/javascript" src="../../Scripts/plugin/jquery.placeholder/placeholder.min.js?JS=20160216_01"></script>
-<![endif]-->
-</html>
+@section scripts{ 
+}

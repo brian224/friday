@@ -46,6 +46,21 @@
 					$(Element).parents('.m-nav').toggleClass('is-active');
 				}
 			},
+			MovieLoad    : function() {
+				var _str = '';
+
+				for (var i = 0; i < Datas.length; i++) {
+					_str += '<li class="list">';
+					_str += '	<span class="img-wrap">';
+					_str += '		<img src="/Content/img/index/cover/' + Datas[i].cover + '" alt="' + Datas[i].name + '">';
+					_str += '	</span>';
+					_str += '	<em class="movie-name">' + Datas[i].name + '</em>';
+					_str += '</li>';
+				}
+
+				$('.js-movies').html(_str);
+				Projects.Factory.OwlCarousel.Init();
+			},
 			OwlCarousel  : {
 				Init    : function() {
 					var $this = this;
@@ -171,6 +186,7 @@
 				Ul      : $('.award-list'),
 				List    : $('.award-list .list'),
 				Wording : $('.get-award'),
+				BtnLink : $('.btn-link'),
 				Check   : false,
 				Award   : null,
 				End     : null,
@@ -223,28 +239,37 @@
 					if (Projects.Factory.UserAgent === 'IE') {
 						$this.Ul.delay(0).queue(function(){
 							$(this).addClass('is-shine').dequeue();
-						}).delay(500).queue(function(){
+						}).delay(350).queue(function(){
 							$(this).removeClass('is-shine').dequeue();
-						}).delay(500).queue(function(){
+						}).delay(350).queue(function(){
 							$(this).addClass('is-shine').dequeue();
-						}).delay(500).queue(function(){
+						}).delay(350).queue(function(){
 							$(this).removeClass('is-shine').dequeue();
-						}).delay(500).queue(function(){
+						}).delay(350).queue(function(){
 							$(this).addClass('is-shine').dequeue();
-						}).delay(500).queue(function(){
+						}).delay(350).queue(function(){
 							$(this).removeClass('is-shine').dequeue();
-						}).delay(500).queue(function(){
+						}).delay(350).queue(function(){
 							$(this).addClass('is-shine').dequeue();
-						}).delay(500).queue(function(){
+						}).delay(350).queue(function(){
 							$(this).removeClass('is-shine').dequeue();
+							Projects.Factory.HB.animate({
+								scrollTop : $this.BtnLink.offset().top
+							});
 							$('.main-content-bd').addClass('show-result');
 						});
 					} else if (Projects.Factory.UserAgent === 'IE89') {
 						$this.Ul.removeClass('is-shine');
+						Projects.Factory.HB.animate({
+							scrollTop : $this.BtnLink.offset().top
+						});
 						$('.main-content-bd').addClass('show-result');
 					} else {
 						$this.Ul.delay(3200).queue(function(){
 							$this.Ul.removeClass('is-shine');
+							Projects.Factory.HB.animate({
+								scrollTop : $this.BtnLink.offset().top
+							});
 							$('.main-content-bd').addClass('show-result');
 						});
 					}

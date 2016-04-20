@@ -21,8 +21,8 @@
 		});
 
 		if (Projects.Factory.LContent.hasClass('index')) {
+			Projects.Factory.MovieLoad();
 			Projects.Factory.Slideshow();
-			Projects.Factory.OwlCarousel.Init();
 		} else if (Projects.Factory.LContent.hasClass('game')) {
 			Projects.Factory.Checked.OpenChecked();
 			// Projects.Factory.PrivateMode.Init();

@@ -65,7 +65,7 @@
 	@include box-sizing(border-box);
 
 	&.is-shine {
-		@include animation(shine 1s ease-in-out infinite);
+		@include animation(shine 0.5s ease-in-out infinite);
 	}
 
 	.list {
