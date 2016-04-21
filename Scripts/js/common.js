@@ -11,12 +11,16 @@
 		Projects.Factory.Validate.Click(e, this);
 	});
 
+	$('.jq-submit').on('click' , function(e){
+		Projects.Factory.Submit(e, this);
+	});
+
 	$(window).load(function(e){
 		$('.jq-play').on('click' , function(e){
 			if (!$(this).hasClass('disable')) {
 				e.preventDefault();
-				Projects.Factory.Play.Click(e, this);
-				// Projects.Factory.FB.GetLoaginState();
+				// Projects.Factory.Play.Click(e, this);
+				Projects.Factory.FB.GetLoaginState();
 			}
 		});
 
@@ -25,7 +29,7 @@
 			Projects.Factory.Slideshow();
 		} else if (Projects.Factory.LContent.hasClass('game')) {
 			Projects.Factory.Checked.OpenChecked();
-			// Projects.Factory.PrivateMode.Init();
+			Projects.Factory.PrivateMode.Init();
 		} else if (Projects.Factory.LContent.hasClass('getcode')) {
 			Projects.Factory.GetSession.Init();
 		} else if (Projects.Factory.LContent.hasClass('formstep')) {
@@ -34,7 +38,7 @@
 	});
 
 	$(document).ready(function(e){
-		// Projects.Factory.FB.Init();
+		Projects.Factory.FB.Init();
 		Projects.Factory.GetUserAgent();
 		Projects.Factory.Menu.Init();
 	});

@@ -61,7 +61,6 @@
 }
 .owl-carousel .owl-stage {
   position: relative;
-  height: 100%;
   -ms-touch-action: pan-Y;
 }
 .owl-carousel .owl-stage:after {
@@ -74,7 +73,6 @@
 }
 .owl-carousel .owl-stage-outer {
   position: relative;
-  height: 100%;
   overflow: hidden;
   /* fix for flashing background */
   -webkit-transform: translate3d(0px, 0px, 0px);
@@ -106,7 +104,6 @@
 .owl-carousel .owl-item {
   position: relative;
   min-height: 1px;
-  height: 100%;
   float: left;
   -webkit-backface-visibility: hidden;
   -webkit-tap-highlight-color: transparent;
@@ -117,8 +114,8 @@
   user-select: none;
 }
 .owl-carousel .owl-item img {
-  /*display: block;*/
-  max-width: 100%;
+  display: block;
+  width: 100%;
   -webkit-transform-style: preserve-3d;
 }
 .owl-carousel.owl-text-select-on .owl-item {

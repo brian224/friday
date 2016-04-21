@@ -2,6 +2,7 @@
 	Layout="~/Views/Shared/_Layout.cshtml";
 }
 @section header{ 
+	<!--[if IE 8 | IE 9]><link rel="stylesheet" href="/Scripts/plugin/owl.carousel/owl.carousel.css?JS=20160420_01"><![endif]-->
 	<link rel="stylesheet" href="/Content/css/index.css?JS=20160420_01">
 }
 	<div class="l-content index" data-location="首頁">
@@ -50,10 +51,10 @@
 				</div>
 			</div>
 			<p class="desc">獎品限制，活動詳情與注意事項請見右上角活動辦法</p>
-			<a href="game" class="btn-link"><em>轉好運 立即抽</em></a>
+			<a href="game" class="btn-link ga_click_trace" ga_cat="start_luckdraw" ga_event="click" ga_label="start"><em>轉好運 立即抽</em></a>
 		</div>
 	</div>
 @section scripts{ 
 	<script type="text/javascript" src="/Scripts/plugin/owl.carousel/owl.carousel.min.js?JS=20160420_01"></script>
-	<script type="text/javascript" src="/Scripts/js/data.js?JS=20160420_01"></script>
+	<script type="text/javascript" src="/Scripts/js/data-min.js?JS=20160420_01"></script>
 }

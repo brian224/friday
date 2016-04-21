@@ -1,6 +1,6 @@
 $(function () {
 	var Datas = [{
-		'name'  : '福爾摩斯',
+		'name'  : '新世紀福爾摩斯：地獄新娘',
 		'cover' : '01.jpg'
 	}, {
 		'name'  : '驚爆焦點',
@@ -9,10 +9,10 @@ $(function () {
 		'name'  : '追婚日記',
 		'cover' : '03.jpg'
 	}, {
-		'name'  : '玩命快遞',
+		'name'  : '玩命快遞：肆意橫行',
 		'cover' : '04.jpg'
 	}, {
-		'name'  : '關鍵救援',
+		'name'  : '關鍵救援：巴士657',
 		'cover' : '05.jpg'
 	}, {
 		'name'  : '愛情失控點',

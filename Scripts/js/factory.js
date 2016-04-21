@@ -9,6 +9,7 @@
 			H            : $('html'),
 			B            : $('body'),
 			Location     : $('.m-nav .location'),
+			MNavMenuList : $('.m-nav-menu .list'),
 			MainContent  : $('.main-content'),
 			LContent     : $('.l-content'),
 			LContentData : $('.l-content').data('location'),
@@ -16,6 +17,7 @@
 			IOS          : /iPhone|iPad|iPod/i,
 			UserAgent    : null,
 			Dynamic      : null,
+			GaLabel      : '',
 			GetUserAgent : function() {
 				var $this = this;
 				
@@ -41,6 +43,35 @@
 			Menu         : {
 				Init  : function() {
 					Projects.Factory.Location.text(Projects.Factory.LContentData);
+
+					if (Projects.Factory.LContent.hasClass('index')) {
+						Projects.Factory.GaLabel = 'A';
+					} else if (Projects.Factory.LContent.hasClass('game')) {
+						Projects.Factory.GaLabel = 'B';
+					} else if (Projects.Factory.LContent.hasClass('getcode')) {
+						Projects.Factory.GaLabel = 'C';
+					} else if (Projects.Factory.LContent.hasClass('action')) {
+						Projects.Factory.GaLabel = 'D';
+					}
+
+					$('.jq-menu').attr('ga_label', 'menu_' + Projects.Factory.GaLabel);
+					Projects.Factory.MNavMenuList.each(function(){
+						var $this = $(this),
+							$link = $this.find('.link'),
+							_idx  = $this.index();
+
+						if (_idx === 0) {
+							$link.attr('ga_label', 'menu_' + Projects.Factory.GaLabel + '_home');
+						} else if (_idx === 1) {
+							$link.attr('ga_label', 'menu_' + Projects.Factory.GaLabel + '_activity');
+						} else if (_idx === 2) {
+							$link.attr('ga_label', 'menu_' + Projects.Factory.GaLabel + '_Richart');
+						} else if (_idx === 3) {
+							$link.attr('ga_label', 'menu_' + Projects.Factory.GaLabel + '_luckdraw');
+						} else if (_idx === 4) {
+							$link.attr('ga_label', 'menu_' + Projects.Factory.GaLabel + '_friDay');
+						}
+					});
 				},
 				Click : function(e , Element) {
 					$(Element).parents('.m-nav').toggleClass('is-active');
@@ -50,12 +81,12 @@
 				var _str = '';
 
 				for (var i = 0; i < Datas.length; i++) {
-					_str += '<li class="list">';
+					_str += '<div class="list">';
 					_str += '	<span class="img-wrap">';
-					_str += '		<img src="/Content/img/index/cover/' + Datas[i].cover + '" alt="' + Datas[i].name + '">';
+					_str += '		<img src="/Content/img/index/cover/' + Datas[i].cover + '?img=20160421" alt="' + Datas[i].name + '">';
 					_str += '	</span>';
 					_str += '	<em class="movie-name">' + Datas[i].name + '</em>';
-					_str += '</li>';
+					_str += '</div>';
 				}
 
 				$('.js-movies').html(_str);
@@ -70,37 +101,24 @@
 					}
 				},
 				Setting : function(Element) {
-					for ( var i = 0 ; i < Element.length ; i ++ ) {
-						if (Element.eq(i).data('init') !== false) {
-							if (Element.eq(i).data('dotscontainer') !== '') {
-								var _str = '';
+					Element.siblings('.pagination').remove();
 
-								for (var j = 0; j < Element.eq(i).find('li').length; j++) {
-									_str += '<div class="page"><a href="javascript:;">' + (j + 1) + '</a></div>';
-								}
-								$(Element.eq(i).data('dotscontainer')).html(_str);
-							} else {
-								Element.eq(i).siblings('.pagination').remove();
-							}
-
-							Element.eq(i).owlCarousel({
-								items              : parseInt(Element.eq(i).data('items'), 10),
-								nav                : ( Element.eq(i).data('nav') === true ) ? true : false,
-								navText            : Element.eq(i).data('navtext') ? Element.eq(i).data('navtext').split(',') : ['', ''],
-								navClass           : Element.eq(i).data('navclass') ? Element.eq(i).data('navclass').split(',') : ['', ''],
-								navContainer       : Element.eq(i).data('navcontainer'),
-								navContainerClass  : Element.eq(i).data('navcontainerclass'),
-								loop               : ( Element.eq(i).find('li').length > 1 ) ? ( ( Element.eq(i).data('loop') === true ) ? true : false ) : false,
-								dots               : ( Element.eq(i).data('dots') === true ) ? true : false,
-								autoplay           : ( Element.eq(i).data('autoplay') === true ) ? true : false,
-								autoplayTimeout    : 5000,
-								autoplayHoverPause : true,
-								dotsContainer      : Element.eq(i).data('dotscontainer'),
-								mouseDrag          : true,
-								slideBy            : 3
-							});
-						}
-					}
+					Element.owlCarousel({
+						items              : parseInt(Element.data('items'), 10),
+						nav                : ( Element.data('nav') === true ) ? true : false,
+						navText            : Element.data('navtext') ? Element.data('navtext').split(',') : ['', ''],
+						navClass           : Element.data('navclass') ? Element.data('navclass').split(',') : ['', ''],
+						navContainer       : Element.data('navcontainer'),
+						navContainerClass  : Element.data('navcontainerclass'),
+						loop               : ( Element.find('.list').length > 1 ) ? ( ( Element.data('loop') === true ) ? true : false ) : false,
+						dots               : ( Element.data('dots') === true ) ? true : false,
+						autoplay           : ( Element.data('autoplay') === true ) ? true : false,
+						autoplayTimeout    : 5000,
+						autoplayHoverPause : true,
+						dotsContainer      : Element.data('dotscontainer'),
+						mouseDrag          : true,
+						slideBy            : 3
+					});
 				}
 			},
 			Slideshow    : function() {
@@ -132,7 +150,7 @@
 				Init           : function() {
 					window.fbAsyncInit = function(){
 						FB.init({
-							appId   : 471818043022804,
+							appId   : 628830867268760,
 							status  : true,
 							cookie  : true,
 							xfbml   : true,
@@ -148,7 +166,7 @@
 
 						js     = d.createElement(s);
 						js.id  = id;
-						js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.5&appId=471818043022804";
+						js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.5&appId=628830867268760";
 
 						fjs.parentNode.insertBefore(js, fjs);
 					}(document, 'script', 'facebook-jssdk'));
@@ -156,8 +174,8 @@
 				GetLoaginState : function(Functions) {
 					var $this = this;
 
-					$('.btn-play').addClass('disable');
-					Projects.Factory.MainContent.removeClass('before').addClass('loading');
+					$('.btn-start').addClass('b-cloak disable');
+					Projects.Factory.MainContent.addClass('loading');
 					FB.getLoginStatus(function (response) {
 						if ( response.authResponse ) {
 							$this.UserID = response.authResponse.userID;
@@ -176,62 +194,82 @@
 							Projects.Factory.Play.Click($this.UserID, $this.UserEMail);
 						} else {
 							alert('須同意應用程式');
-							$('.btn-play').removeClass('disable');
-							Projects.Factory.MainContent.removeClass('loading').addClass('before');
+							$('.btn-start').removeClass('b-cloak disable');
+							Projects.Factory.MainContent.removeClass('loading');
 						}
 					} , {scope : 'email'});
 				}
 			},
 			Play         : {
-				Ul      : $('.award-list'),
-				List    : $('.award-list .list'),
-				Wording : $('.get-award'),
-				BtnLink : $('.btn-link'),
-				Check   : false,
-				Award   : null,
-				End     : null,
-				Label   : null,
-				Click   : function(e, Element) {
-					var $this = this,
-						i     = 0;
+				Ul       : $('.award-list'),
+				List     : $('.award-list .list'),
+				Wording  : $('.get-award'),
+				BtnLink  : $('.btn-link'),
+				Check    : false,
+				Award    : null,
+				End      : null,
+				I        : 0,
+				Speed    : 50,
+				Click    : function(fbid, email) {
+					var $this = this;
 
-					$(Element).addClass('b-cloak');
+					Projects.Factory.MainContent.removeClass('loading');
 
 					if ($this.Check === false) {
 						$this.Check = true;
+						$this.Loop();
 
-						var runIt = setInterval(function(){
-							if (i === $this.List.length - 1) {
-								i = 0;
-							} else if (i === $this.End) {
-								this.clearInterval(runIt);
-
-								$this.Ul.addClass('is-shine');
-								$this.Finish();
-							} else {
-								i += 1;
+						$.ajax({
+							type     : 'POST',
+							url      : '//' + window.location.host + '/api/lottery',
+							data     : {
+								fbid  : fbid,
+								email : ''
+							},
+							dataType : 'json',
+							success  : function(data) {
+								if (data.prize === '180') {
+									$this.End = 0;
+								} else if (data.prize === '60') {
+									$this.End = 6;
+								} else if (data.prize === '37') {
+									$this.End = 3;
+								}
+								$this.Award = data.prize;
+								sessionStorage.setItem('award', $this.Award);
+								sessionStorage.setItem('serial', data.serial);
+								sessionStorage.setItem('ACT_NO', data.ACT_NO);
 							}
-
-							$this.List.eq(i).addClass('is-show').siblings().removeClass('is-show');
-						}, 50);
-
-						$('body').on('keydown', function(e){
-							if (e.keyCode === 49 || e.keyCode === 97) {
-								$this.End = 0;
-								$this.Award = '180';
-							} else if (e.keyCode === 50 || e.keyCode === 98) {
-								$this.End = 6;
-								$this.Award = '60';
-							} else if (e.keyCode === 51 || e.keyCode === 99) {
-								$this.End = 3;
-								$this.Award = '37';
-							}
-
-							sessionStorage.setItem('award', $this.Award);
 						});
 					}
 				},
-				Finish  : function() {
+				Loop     : function() {
+					var $this = this;
+
+					var runit = setTimeout(function(){
+						$this.I += 1;
+
+						if ($this.I === $this.List.length - 1) {
+							$this.I = -1;
+						}
+
+						if ($this.I === $this.End) {
+							$this.Speed = $this.Speed * 2.5;
+
+							if ($this.Speed > 700 && $this.I === $this.End) {
+								$this.Ul.addClass('is-shine');
+								$this.Finish();
+							} else {
+								$this.Loop();
+							}
+						} else {
+							$this.Loop();
+						}
+
+						$this.List.eq($this.I).addClass('is-show').siblings().removeClass('is-show');
+					}, $this.Speed);
+				},
+				Finish   : function() {
 					var $this = this;
 
 					$this.Wording.text($this.Award + '天免費看');
@@ -276,17 +314,27 @@
 				}
 			},
 			GetSession   : {
-				// serial    : $('.serial'),
-				// recommand : $('.recommand'),
-				award     : $('.award'),
-				Init      : function() {
+				serial : $('.serial'),
+				award  : $('.award'),
+				money  : $('.money'),
+				ACT_NO : $('.ACT_NO'),
+				Init   : function() {
 					var $this   = this,
-						// _serial = sessionStorage.getItem('serial') || '',
+						_serial = sessionStorage.getItem('serial') || '',
+						_ACT_NO = sessionStorage.getItem('ACT_NO') || '',
 						_award  = sessionStorage.getItem('award') || '';
 
-					// $this.serial.text(_serial);
+					$this.serial.text(_serial);
 					$this.award.text(_award);
+					$this.ACT_NO.val(_ACT_NO);
+
+					if (_award === '37') {
+						$this.money.text('領NT$300');
+					}
 				}
+			},
+			Submit       : function(e , Element) {
+				GAPush($(Element).attr('ga_cat') , $(Element).attr('ga_event') , $(Element).attr('ga_label'));
 			},
 			PrivateMode  : {
 				Init : function() {
