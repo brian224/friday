@@ -6,15 +6,6 @@
 		Projects.Factory.Menu.Click(e, this);
 	});
 
-	$('.jq-submit').on('click' , function(e){
-		e.preventDefault();
-		Projects.Factory.Validate.Click(e, this);
-	});
-
-	$('.jq-submit').on('click' , function(e){
-		Projects.Factory.Submit(e, this);
-	});
-
 	$(window).load(function(e){
 		$('.jq-play').on('click' , function(e){
 			if (!$(this).hasClass('disable')) {
@@ -32,8 +23,17 @@
 			Projects.Factory.PrivateMode.Init();
 		} else if (Projects.Factory.LContent.hasClass('getcode')) {
 			Projects.Factory.GetSession.Init();
+
+			$('.jq-submit').on('click' , function(e){
+				Projects.Factory.Submit(e, this);
+			});
 		} else if (Projects.Factory.LContent.hasClass('formstep')) {
 			Projects.Factory.Validate.Init();
+
+			$('.jq-submit').on('click' , function(e){
+				e.preventDefault();
+				Projects.Factory.Validate.Click(e, this);
+			});
 		}
 	});
 

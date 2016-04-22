@@ -17,6 +17,7 @@
 			IOS          : /iPhone|iPad|iPod/i,
 			UserAgent    : null,
 			Dynamic      : null,
+			OS           : null,
 			GaLabel      : '',
 			GetUserAgent : function() {
 				var $this = this;
@@ -43,6 +44,10 @@
 			Menu         : {
 				Init  : function() {
 					Projects.Factory.Location.text(Projects.Factory.LContentData);
+
+					if (Projects.Factory.UserAgent === 'Mobile') {
+						$('.m-nav-menu .friday .link').attr('href', '//video.friday.tw/m/sn');
+					}
 
 					if (Projects.Factory.LContent.hasClass('index')) {
 						Projects.Factory.GaLabel = 'A';
