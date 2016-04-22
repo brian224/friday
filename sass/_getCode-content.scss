@@ -18,6 +18,10 @@
 
 	.slogan {
 		font-weight: bold;
+
+		.link {
+			color: #333;
+		}
 	}
 }
 
@@ -159,6 +163,7 @@
 
 			.code {
 				margin: 0 8px;
+				padding: 0 10px;
 				min-width: 168px;
 				height: 30px;
 				line-height: 30px;
@@ -279,6 +284,7 @@
 
 			.code {
 				margin: 5px;
+				padding: 0 5px;
 				min-width: 84px;
 			}
 		}

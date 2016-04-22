@@ -47,6 +47,10 @@
 
 					if (Projects.Factory.UserAgent === 'Mobile') {
 						$('.m-nav-menu .friday .link').attr('href', '//video.friday.tw/m/sn');
+
+						if (Projects.Factory.LContent.hasClass('getcode')) {
+							$('.slogan .link').attr('href', '//video.friday.tw/m/sn');
+						}
 					}
 
 					if (Projects.Factory.LContent.hasClass('index')) {
