@@ -300,11 +300,11 @@
 							$(this).addClass('is-shine').dequeue();
 						}).delay(350).queue(function(){
 							$(this).removeClass('is-shine').dequeue();
-							Projects.Factory.HB.animate({
-								scrollTop : $this.BtnLink.offset().top
-							});
-							$('.main-content-bd').addClass('show-result');
 						});
+						Projects.Factory.HB.animate({
+							scrollTop : $this.BtnLink.offset().top
+						});
+						$('.main-content-bd').addClass('show-result');
 					} else if (Projects.Factory.UserAgent === 'IE89') {
 						$this.Ul.removeClass('is-shine');
 						Projects.Factory.HB.animate({
@@ -314,11 +314,11 @@
 					} else {
 						$this.Ul.delay(3200).queue(function(){
 							$this.Ul.removeClass('is-shine');
-							Projects.Factory.HB.animate({
-								scrollTop : $this.BtnLink.offset().top
-							});
-							$('.main-content-bd').addClass('show-result');
 						});
+						Projects.Factory.HB.animate({
+							scrollTop : $this.BtnLink.offset().top
+						});
+						$('.main-content-bd').addClass('show-result');
 					}
 				}
 			},

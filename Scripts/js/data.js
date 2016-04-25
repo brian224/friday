@@ -6,7 +6,7 @@ $(function () {
 		'name'  : '驚爆焦點',
 		'cover' : '02.jpg'
 	}, {
-		'name'  : '追婚日記',
+		'name'  : '愛睡在一起',
 		'cover' : '03.jpg'
 	}, {
 		'name'  : '玩命快遞：肆意橫行',
