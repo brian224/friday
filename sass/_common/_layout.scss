@@ -1,5 +1,5 @@
 body {
-	&:before {
+	.l-lightbox:before {
 		content: '';
 		background: rgba(0, 0, 0, 0.75);
 		display: block;
@@ -16,7 +16,7 @@ body {
 	}
 
 	&.show-box {
-		&:before, .m-lightbox {
+		.l-lightbox:before, .m-box {
 			z-index: 3;
 			@include opacity(1);
 		}
@@ -198,7 +198,7 @@ body {
 	}
 }
 
-.m-lightbox {
+.m-box {
 	padding: 15px;
 	background: #fff;
 	display: block;
@@ -211,7 +211,7 @@ body {
 	@include box-sizing(border-box);
 	@include transition(ease-in all 0.3s);
 
-	.m-lightbox-hd {
+	.m-box-hd {
 		height: 40px;
 
 		h4 {
@@ -373,15 +373,15 @@ body {
 		}
 	}
 
-	.m-lightbox {
+	.m-box {
 		margin: -111px 0 0 -160px;
 		width: 320px;
 
-		.m-lightbox-hd h4 {
+		.m-box-hd h4 {
 			font-size: 22px;
 		}
 
-		.m-lightbox-ft {
+		.m-box-ft {
 			text-align: center;
 		}
 
@@ -525,11 +525,11 @@ body {
 		}
 	}
 
-	.m-lightbox {
+	.m-box {
 		margin: -96px 0 0 -140px;
 		width: 280px;
 
-		.m-lightbox-hd h4 {
+		.m-box-hd h4 {
 			font-size: 18px;
 		}
 

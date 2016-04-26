@@ -343,7 +343,7 @@
 				}
 			},
 			Submit       : function(e , Element) {
-				// GAPush($(Element).attr('ga_cat') , $(Element).attr('ga_event') , $(Element).attr('ga_label'));
+				GAPush($(Element).attr('ga_cat') , $(Element).attr('ga_event') , $(Element).attr('ga_label'));
 			},
 			PrivateMode  : {
 				Init : function() {
