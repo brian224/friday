@@ -26,6 +26,12 @@
 
 			$('.jq-submit').on('click' , function(e){
 				Projects.Factory.Submit(e, this);
+				Projects.Factory.Box.Open(e, this);
+			});
+
+			$('.jq-close-box').on('click' , function(e){
+				e.preventDefault();
+				Projects.Factory.Box.Close(e, this);
 			});
 		} else if (Projects.Factory.LContent.hasClass('formstep')) {
 			Projects.Factory.Validate.Init();

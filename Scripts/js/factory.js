@@ -343,7 +343,7 @@
 				}
 			},
 			Submit       : function(e , Element) {
-				GAPush($(Element).attr('ga_cat') , $(Element).attr('ga_event') , $(Element).attr('ga_label'));
+				// GAPush($(Element).attr('ga_cat') , $(Element).attr('ga_event') , $(Element).attr('ga_label'));
 			},
 			PrivateMode  : {
 				Init : function() {
@@ -461,6 +461,28 @@
 					} else {
 						$(Element).parent().removeClass('error');
 					}
+				}
+			},
+			Box          : {
+				Open : function() {
+					var $this = this;
+
+					Projects.Factory.B.addClass('show-box');
+					$this.OffClick();
+				},
+				Close : function() {
+					Projects.Factory.B.removeClass('show-box');
+				},
+				OffClick : function() {
+					var $this = this;
+
+					Projects.Factory.D.on('click' , function(e){
+						e.stopPropagation();
+
+						if ( ! jQuery(e.target).is('.m-lightbox , .m-lightbox * , .jq-submit , .jq-submit *')) {
+							$this.Close();
+						}
+					});
 				}
 			}
 		}
