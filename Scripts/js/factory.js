@@ -230,7 +230,7 @@
 
 						$.ajax({
 							type     : 'POST',
-							url      : '//' + window.location.host + '/api/lottery',
+							url      : '/api/lottery',
 							data     : {
 								fbid  : fbid,
 								email : ''

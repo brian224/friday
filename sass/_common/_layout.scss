@@ -547,6 +547,19 @@ body {
 	}
 }
 
+@include browsers('IE9') {
+	.l-header {
+		.logo .link {
+			background: image-url('for-ie/logo.png') 0 0 no-repeat;
+			width: 131px;
+
+			&.richart {
+				background-position: -131px 0;
+			}
+		}
+	}
+}
+
 @include browsers('IE8') {
 	.l-header {
 		.logo .link {

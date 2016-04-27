@@ -2,18 +2,18 @@
 	Layout="~/Views/Shared/_Layout.cshtml";
 }
 @section header{ 
-	<!--[if IE 8 | IE 9]><link rel="stylesheet" href="/Scripts/plugin/owl.carousel/owl.carousel.css?JS=20160420_01"><![endif]-->
-	<link rel="stylesheet" href="/Content/css/index.css?JS=20160420_01">
+	<!--[if IE 8 | IE 9]><link rel="stylesheet" href="@Url.Content("~/Scripts/plugin/owl.carousel/owl.carousel.css")?JS=20160420_01"><![endif]-->
+	<link rel="stylesheet" href="@Url.Content("~/Content/css/index.css")?JS=20160420_01">
 }
 	<div class="l-content index" data-location="首頁">
 		<h2 class="main-title">
 			<div class="half-part left-part">
 				<em>翻轉生活新世/視界</em>
-				<svg class="svg-icon"><use xlink:href="/Content/svg/icon.svg?JS=20160420_01#turn"/></svg>
+				<svg class="svg-icon"><use xlink:href="@Url.Content("~/Content/svg/icon.svg")?JS=20160420_01#turn"/></svg>
 			</div>
 			<div class="half-part right-part">
 				<em>出你的好運氣！</em>
-				<svg class="svg-icon"><use xlink:href="/Content/svg/icon.svg?JS=20160420_01#rotate"/></svg>
+				<svg class="svg-icon"><use xlink:href="@Url.Content("~/Content/svg/icon.svg")?JS=20160420_01#rotate"/></svg>
 			</div>
 		</h2>
 		<div class="main-content">
@@ -55,6 +55,6 @@
 		</div>
 	</div>
 @section scripts{ 
-	<script type="text/javascript" src="/Scripts/plugin/owl.carousel/owl.carousel.min.js?JS=20160420_01"></script>
-	<script type="text/javascript" src="/Scripts/js/data-min.js?JS=20160420_01"></script>
+	<script type="text/javascript" src="@Url.Content("~/Scripts/plugin/owl.carousel/owl.carousel.min.js")?JS=20160420_01"></script>
+	<script type="text/javascript" src="@Url.Content("~/Scripts/js/data-min.js")?JS=20160420_01"></script>
 }

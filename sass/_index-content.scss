@@ -648,6 +648,10 @@
 }
 
 @include browsers('IE9') {
+	.main-content {
+		@include opacity(1);
+	}
+
 	.award-list .list.is-show:after {
 		display: none;
 	}

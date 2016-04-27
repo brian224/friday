@@ -401,7 +401,60 @@
 	}
 }
 
-@include browsers('IE') {}
+@include browsers('IE9') {
+	.ticket-content {
+		position: relative;
+
+		&:before {
+			content: '';
+			background: image-url('getCode/bg-dog.png') 0 0 no-repeat;
+			width: 248px;
+			height: 282px;
+			position: absolute;
+			bottom: -7px;
+			right: -90px;
+			z-index: 2;
+		}
+	}
+
+	.collect .function-list .list {
+		em:after {
+			content: '';
+			background: image-url('for-ie/device.png') 0 0 no-repeat;
+			display: block;
+			position: absolute;
+			top: 65px;
+			left: 50%;
+			border: 0;
+		}
+
+		&:first-child {
+			em:after {
+				margin: -28px 0 0 -17px;
+				width: 35px;
+				height: 57px;
+			}
+	
+			+ li {
+				em:after {
+					background-position: -36px 0;
+					margin: -24px 0 0 -35px;
+					width: 70px;
+					height: 47px;
+				}
+			}
+	
+			+ li + li {
+				em:after {
+					background-position: -107px 0;
+					margin: -25px 0 0 -38px;
+					width: 76px;
+					height: 61px;
+				}
+			}
+		}
+	}
+}
 
 @include browsers('IE8') {
 	.ticket-content {

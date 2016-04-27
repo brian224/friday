@@ -15,17 +15,17 @@
 	<meta property="fb:app_id" content="628830867268760" />
 	<meta property="og:title" content="Richart x friDay 影音，千部電影免費看，再抽現金10萬，人人有獎" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="http://richart-friday.azurewebsites.net/" />
-	<meta property="og:image" content="http://richart-friday.azurewebsites.net/Content/img/shared/FB.png" />
+	<meta property="og:url" content="http://richart-friday.sugarfun.com.tw/" />
+	<meta property="og:image" content="http://richart-friday.sugarfun.com.tw/Content/img/shared/FB.png" />
 	<meta property="og:image:type" content="image/jpeg" />
 	<meta property="og:site_name" content="" />
 	<title>Richart x friDay 影音</title>
 	<link rel="canonical" href="" />
-	<link rel="shortcut icon" type="image/x-icon" href="../../Content/img/shared/favicon.ico">
-	<link rel="stylesheet" href="../../Content/css/style.css?JS=20160420_01">
+	<link rel="shortcut icon" type="image/x-icon" href="@Url.Content("~/Content/img/shared/favicon.ico")">
+	<link rel="stylesheet" href="@Url.Content("~/Content/css/style.css")?JS=20160420_01">
 	@RenderSection("header",false)
 	<!--[if lt IE 9]>
-	<script type="text/javascript" src="/Scripts/plugin/html5/html5.js??JS=20160216_01"></script>
+	<script type="text/javascript" src="@Url.Content("~/Scripts/plugin/html5/html5.js")?JS=20160216_01"></script>
 	<![endif]-->
 </head>
 <body>
@@ -33,7 +33,7 @@
 		<h1 class="logo b-clearfix">
 			<a href="//video.friday.tw/tv" class="link friday ga_click_trace" ga_cat="logo" ga_event="click" ga_label="home">
 				<em>Friday 影音</em>
-				<svg class="svg-icon"><use xlink:href="../../Content/svg/icon.svg?JS=20160420_01#friday-logo"/></svg>
+				<svg class="svg-icon"><use xlink:href="@Url.Content("~/Content/svg/icon.svg")?JS=20160420_01#friday-logo"/></svg>
 			</a>
 			<a href="http://richart.tw/" class="link richart ga_click_trace" ga_cat="logo2" ga_event="click" ga_label="home">
 				<em>Richart</em>
@@ -58,10 +58,10 @@
 		<p class="copyright">©台新國際商業銀行 Copyright Taishin International Bank. <span class="sm-block">All Rights Reserved.</span></p>
 	</footer>
 </body>
-<script type="text/javascript" src="../../Scripts/plugin/svgxuse/svgxuse.min.js?JS=20160216_01"></script>
-<script type="text/javascript" src="../../Scripts/plugin/jquery/jquery.min.js?JS=20160216_01"></script>
-<!-- <script type="text/javascript" src="../../Scripts/js/ga.js?JS=20160216_01" id="GAScript" data-id="UA-72250086-7"></script> -->
-<script type="text/javascript" src="../../Scripts/js/factory-min.js?JS=20160216_01"></script>
-<script type="text/javascript" src="../../Scripts/js/common-min.js?JS=20160216_01"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/plugin/svgxuse/svgxuse.min.js")?JS=20160216_01"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/plugin/jquery/jquery.min.js")?JS=20160216_01"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/js/ga.js")?JS=20160216_01" id="GAScript" data-id="UA-72250086-7"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/js/factory-min.js")?JS=20160216_01"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/js/common-min.js")?JS=20160216_01"></script>
 @RenderSection("scripts",false)
 </html>
