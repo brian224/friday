@@ -21,6 +21,15 @@
 
 		.link {
 			color: #333;
+			text-decoration: underline;
+
+			&:hover {
+				text-decoration: none;
+			}
+		}
+
+		strong {
+			color: #D81212;
 		}
 	}
 }

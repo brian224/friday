@@ -466,6 +466,14 @@
 				}
 			}
 
+			&.again:before {
+				margin-left: -29px;
+				background-position: -88px 0;
+				width: 58px;
+				height: 28px;
+				top: 10px;
+			}
+
 			&:nth-child(2), &:nth-child(6) {
 				left: 34%;
 			}
