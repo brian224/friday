@@ -48,7 +48,7 @@ if ( document.getElementById('GAScript').dataset ? document.getElementById('GASc
                     e.preventDefault();
                     GAPush($set.Cat , $set.Action , $set.Label , {'hitCallback' : GAHitBack(jQuery(this))});
                 }
-            } else if ( jQuery(e.target)[0].nodeName !== 'A' ) {
+            } else {
                 GAPush($set.Cat , $set.Action , $set.Label);
             }
         });

@@ -19,17 +19,34 @@
 	.slogan {
 		font-weight: bold;
 
-		.link {
-			color: #333;
-			text-decoration: underline;
-
-			&:hover {
-				text-decoration: none;
-			}
-		}
-
 		strong {
 			color: #D81212;
+		}
+	}
+}
+
+.btn-friday {
+	margin-bottom: 15px;
+	padding: 0 24px;
+	height: 34px;
+	border-radius: 16px;
+	box-shadow: 0 2px 0 #007daa;
+	line-height: 34px;
+	@include background-image(linear-gradient(to bottom, #00ace9 0%, #029bd1 100%));
+
+	em {
+		position: relative;
+		color: #fff;
+		font-size: 15px;
+
+		&:after {
+			content: '';
+			margin-left: 8px;
+			display: inline-block;
+			height: 0;
+			border-top: 4px solid transparent;
+			border-bottom: 4px solid transparent;
+			border-left: 6px solid #fff;
 		}
 	}
 }
@@ -139,7 +156,8 @@
 		padding-bottom: 30px;
 
 		.term {
-			margin: 0 170px 0 22px;
+			padding: 0 170px 0 22px;
+			text-align: left;
 		}
 
 		.slogan {
