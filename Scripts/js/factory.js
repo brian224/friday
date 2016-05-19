@@ -248,6 +248,9 @@
 								sessionStorage.setItem('award', $this.Award);
 								sessionStorage.setItem('serial', data.serial);
 								sessionStorage.setItem('ACT_NO', data.ACT_NO);
+							},
+							complete : function(data) {
+								GAPush('game' , 'js-push' , 'get-lottery');
 							}
 						});
 					}
@@ -349,9 +352,11 @@
 				Init : function() {
 					if (Projects.Factory.UserAgent !== 'IE' && Projects.Factory.UserAgent !== 'IE89') {
 						if (typeof(FB) === 'undefined') {
+							GAPush('private-mode' , 'js-push' , 'firefox');
 							alert('提醒您，您目前正在使用私密瀏覽模式，請關閉此模式，以免導致轉轉賺翻天抽獎無法正常運作，謝謝您的配合。');
 						}
 						try { localStorage.test = 2; } catch (e) {
+							GAPush('private-mode' , 'js-push' , 'others');
 							alert('提醒您，您目前正在使用私密瀏覽模式，請關閉此模式，以免導致轉轉賺翻天抽獎無法正常運作，謝謝您的配合。');
 						}
 					}
